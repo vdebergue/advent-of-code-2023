@@ -1,4 +1,5 @@
 use itertools::Itertools;
+use rayon::prelude::*;
 use regex::Regex;
 
 pub fn run(contents: String) {
@@ -31,6 +32,7 @@ pub fn run(contents: String) {
     let min2 = seeds
         .into_iter()
         .tuples()
+        .par_bridge()
         .map(|(s, l)| {
             let range = s..(s + l);
             println!("Calc for {range:?}...");

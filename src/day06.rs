@@ -9,6 +9,8 @@ pub fn run(contents: String) {
     let time = parse_line2(lines[0]);
     let distance = parse_line2(lines[1]);
     let res_p2: u64 = part2(time, distance);
+    let res_p2_bis = part2_bis(time, distance);
+    println!("From calc: {res_p2_bis}");
     println!("part2: {res_p2}");
 }
 
@@ -31,6 +33,15 @@ fn part1(times: &Vec<u64>, distances: &Vec<u64>) -> u64 {
 
 fn part2(time: u64, distance: u64) -> u64 {
     part1(&vec![time], &vec![distance])
+}
+
+// Equation is x^2 - Tx + D = 0
+// Distance between solutions is sqrt(delta)
+// Delta = b^2 -4ac
+fn part2_bis(time: u64, distance: u64) -> f64 {
+    let delta: f64 = (time.pow(2) - 4 * distance) as f64;
+    let r = delta.sqrt();
+    r.ceil()
 }
 
 fn distance_moved(pressed_time: u64, race_time: u64) -> u64 {
