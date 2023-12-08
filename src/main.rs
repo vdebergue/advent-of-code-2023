@@ -8,6 +8,7 @@ mod day04;
 mod day05;
 mod day06;
 mod day07;
+mod day08;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -23,6 +24,7 @@ fn main() {
         "5" => day05::run(contents),
         "6" => day06::run(contents),
         "7" => day07::run(contents),
+        "8" => day08::run(contents),
         _ => panic!("Not implemented yet"),
     };
 }
