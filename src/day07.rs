@@ -26,7 +26,7 @@ where
         })
         .sorted_by(|l, r| compare_hands(l, r, order))
         .enumerate()
-        .map(|(rank, (cards, bid, tpe))| {
+        .map(|(rank, (_cards, bid, _tpe))| {
             // println!("Hand {cards} is rank {rank} tpe={tpe:?} bid={bid}");
             (rank + 1) * bid
         })
